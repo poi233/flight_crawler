@@ -16,9 +16,9 @@ class Crawler:
         self.chrome_options = webdriver.ChromeOptions()
         self.chrome_options.add_argument('headless')
         self.airline_dict = dict()
-        self.db_path = 'rm-uf6ot7c0082z06i6ubo.mysql.rds.aliyuncs.com'
+        self.db_path = 'rm-0xi03qr9vkuhu27bnyo.mysql.rds.aliyuncs.com'
         self.db_username = 'root'
-        self.db_password = '123QWEasd'
+        self.db_password = 'Puyihao!56607015'
         self.db_name = 'flight'
          # self.chrome_options.add_argument('--disable-gpu')
         # self.chrome_options.add_argument("--no-sandbox")
@@ -34,7 +34,7 @@ class Crawler:
                 EC.presence_of_element_located((By.CLASS_NAME, "loading-block1")))
         finally:
             response = driver.page_source
-            soup = BeautifulSoup(response, 'lxml')
+            soup = BeautifulSoup(response, "html.parser")
             driver.quit()
             return soup
 
@@ -56,6 +56,8 @@ class Crawler:
         for i in range(len(airlines)):
             span = airlines[i].find("span")
             airline = str(span.text)[0:re.search('\d', str(span.text)).start()].strip()
+            if airline == 'S':
+                print(span)
             if airline not in self.airline_dict.keys():
                 self.airline_dict[airline] = 1
             else:
