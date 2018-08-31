@@ -56,8 +56,6 @@ class Crawler:
         for i in range(len(airlines)):
             span = airlines[i].find("span")
             airline = str(span.text)[0:re.search('\d', str(span.text)).start()].strip()
-            if airline == 'S':
-                print(span)
             if airline not in self.airline_dict.keys():
                 self.airline_dict[airline] = 1
             else:
