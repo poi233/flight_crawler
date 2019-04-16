@@ -18,7 +18,7 @@ class Crawler:
         self.airline_dict = dict()
         self.db_path = 'rm-0xi03qr9vkuhu27bnyo.mysql.rds.aliyuncs.com'
         self.db_username = 'root'
-        self.db_password = 'Puyihao!56607015'
+        self.db_password = '************'
         self.db_name = 'flight'
          # self.chrome_options.add_argument('--disable-gpu')
         # self.chrome_options.add_argument("--no-sandbox")
